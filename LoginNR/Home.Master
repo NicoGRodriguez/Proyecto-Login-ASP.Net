@@ -1,0 +1,187 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.Master.cs" Inherits="LoginNR.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Bienvenido</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta name="viewport" content="width-devide-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" type="text/css" />
+    <link href="css/MasterStyle.css" rel="stylesheet" type="text/css" />
+    <style>
+        html, body {
+            min-height: 100%;
+            padding: 0;
+            font-family: "Source Sans Pro", "Helvetica Neve", Helvetica, Arial;
+        }
+
+        iframe {
+            display: block;
+            overflow: auto;
+            border: 0;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .frame {
+            height: 48px;
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+            .frame a {
+                color: #666;
+            }
+
+                .frame a:hover {
+                    color: #222;
+                }
+
+            .frame .buttons a {
+                height: 49px;
+                line-height: 49px;
+                display: inline-block;
+                text-align: center;
+                width: 50px;
+                border-left: 1px solid #ddd;
+            }
+
+            .frame .brand {
+                color: #444;
+                font-size: 20px;
+                line-height: 49px;
+                display: inline-block;
+                padding-left: 10px
+            }
+
+                .frame .brand small {
+                    font-size: 14px;
+                }
+
+        a, a:hover {
+            text-decoration: none;
+        }
+
+        .container-fluid {
+            padding: 0;
+            margin: 0;
+        }
+
+        .text-muted {
+            color: #999;
+        }
+
+        .ad {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background: #222;
+            width: 100%;
+            color: #fff;
+            display: none;
+        }
+
+        #close-ad {
+            float: left;
+            margin-left: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="skin-blue">
+    <header class="header">
+        <!-- Navbar inicio-->
+        <a href="#" class="logo">ENCODE S.A.</a>
+        <nav class="navbar navbar-static-top" role="navigation">
+            <a href="#" class="sidebar-toggle navbar-btn" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+        </nav>
+        <!-- Navbar fin-->
+    </header>
+    <!--Inicio de wrapper-->
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        <aside class="left-side sidebar-offcanvas">
+            <section class="sidebar">
+                <div class="user-panel">
+                    <div class="fa-pull-left image">
+                        <img src="img/avatar5.png" class="img-circle" alt="Usuario" />
+                    </div>
+                    <div class="fa-pull-left info">
+                        <div class="row">
+                            <asp:Label ID="lblBienvenida" Text="" runat="server" />
+                        </div>
+                    </div>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="active">
+                        <a href="PanelGeneral.aspx">
+                            <i class="fas fa-home"></i>
+                            <span>Panel General</span>
+                        </a>
+                    </li>
+                    <li id="MenuListaDeUsu" runat="server">
+                        <a href="listaDeUsuarios.aspx">
+                            <i class="fa fa-th"></i>
+                            <span>Usuarios</span>
+                        </a>
+                    </li>
+                    <li id="MenuRegistrar" runat="server">
+                        <a href="registroUsuario.aspx">
+                            <i class="fa fa-th"></i>
+                            <span>Registrar Usuario</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="LoginNR.aspx">
+                            <i class="fa fa-sign-out-alt"></i>
+                            <span>Desconectar</span>
+                        </a>
+                    </li>
+                </ul>
+                <%--<div class="row">
+                    <asp:Button ID="btnCerrar" Text="Cerrar Seccion" CssClass="btn btn-dark" runat="server" OnClick="btnCerrar_Click" />
+                </div>--%>
+            </section>
+        </aside>
+        <aside class="right-side">
+            <section class="content-header">
+                <h1>
+                    <asp:Label ID="lblOpcion" Text="Panel Principal" runat="server" />
+                </h1>
+            </section>
+            <section class="content">
+                <form id="formulario" class="formulario needs-validation" runat="server" novalidate>
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            <!-- Diseño que hereda -->
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </form>
+            </section>
+        </aside>
+    </div>
+    <!-- Fin de wrapper-->
+    <script src="js/Validaciones.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js" type="module"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/x-jquery-tmpl"></script>
+    <script src="js/javascript.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+</html>
+
+
